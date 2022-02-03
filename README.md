@@ -20,5 +20,6 @@ Organize Secret Santa by email
 ### Contact
 
 Malik Hassanaly: (malik.hassanaly!at!gmail!com)
+
 Senna Hassanaly: (senna.hassanaly!at!departmentofdogs!com)
 
