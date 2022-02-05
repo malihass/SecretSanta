@@ -78,14 +78,14 @@ dummyemail = 'test123@gpail.cop'
 
 # Name of guest /  email adress / person guest gave to the past years
 Attendees.append(['Dad Tenney',   'test123@gpail.cop',     ['Mom Tenney','Jason']])
-Attendees.append(['Mom Tenney',   'test123@gpail.cop'    ,     ['Amy','Kristin','Dad Tenney']])
+Attendees.append(['Mom Tenney',   'test123@gpail.cop'    ,     ['Amy','Kristin','Dad Tenney','Malik']])
 Attendees.append(['Wendy',        'test123@gpail.cop',       ['Dad Tenney','Amy','Aaron']])
 Attendees.append(['Aaron',        'test123@gpail.cop',       ['Beth','Malik','Wendy']])
-Attendees.append(['Amy',          'test123@gpail.cop',      ['Jason','Dad Tenney']])
+Attendees.append(['Amy',          'test123@gpail.cop',      ['Jason','Dad Tenney', 'Kristin']])
 Attendees.append(['Beth',         'test123@gpail.cop',        ['Malik','Mom Tenney']])
-Attendees.append(['Jason',        'test123@gpail.cop',         ['Wendy','Beth']])
+Attendees.append(['Jason',        'test123@gpail.cop',         ['Wendy','Beth','Amy']])
 Attendees.append(['Kristin',      'test123@gpail.cop',          ['Aaron','Wendy','Malik']])
-Attendees.append(['Malik',        'test123@gpail.cop',  ['Kristin','Aaron']])
+Attendees.append(['Malik',        'test123@gpail.cop',  ['Kristin','Aaron','Dad Tenney']])
 
 
 # ~~~~ List of previous pairs
