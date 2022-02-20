@@ -17,7 +17,7 @@ Organize Secret Santa by email
 
 `python main input`
 
-### Contact
+## Contact
 
 Malik Hassanaly: (malik.hassanaly!at!gmail!com)
 
