@@ -10,7 +10,7 @@ Organize Secret Santa by email
     - ~~Clear sending box~~
     - Make a log and send it to a separate location
 - Deal with variables (list of guest + guest info) via an input file
-- ~~Properly protect user info~~~
+- ~~Properly protect user info~~
 - Add a web interface
 
 ## Using the code
