@@ -15,6 +15,7 @@ import myparser
 inpt = myparser.parseInputFile()
 hostEmail = inpt['hostEmail']
 hostPassword = inpt['hostPassword']
+gdoc = inpt['gdoc']
 
 def send_email(name, email, nameReceiver):
     server = smtplib.SMTP('smtp.gmail.com',587)
@@ -22,22 +23,22 @@ def send_email(name, email, nameReceiver):
     server.starttls()
     server.ehlo()
     server.login(hostEmail,hostPassword)
-    subject = 'Secret Santa 2021!'
+    subject = 'Secret Santa 2022!'
     msg = MIMEMultipart('alternative')
     msg['Subject'] = subject
     msg['From'] = "The Secret Santa Corporation"
     msg['To'] = email
     
     body = 'Hi ' + name + '!' + '<br>' + \
-           "It is that time of the year again: welcome to the 2021 edition of the Tenney family's Secret Santa!<br><br>" + \
-           'You have been assigned the following person for Secret Santa : ' +  nameReceiver + '!<br><br>' + \
-           'Link to the google doc for gifts: https://XXXXXX <br><br>' + \
-           'The Secret Santa Corporation prides itself in satisfying its loyal clients and keeps innovating to make your Christmas experience even more magical.<br>' + \
-           'This year, we have ensured that your Secret Santa is different than the past two years.<br>' + \
-           'If you are not satisfied with your Secret Santa, message our assistant Malik: XXX@XXX.XXX <br>' + \
-           'If you need to sue the Secret Santa Corporation, we may be served at the following address: XXX@XXX.XXX <br><br>' + \
-           'Additional instructions: <br>&nbsp;&nbsp;&nbsp;&nbsp;1) On your gift, please indicate the name of the receiver and include the word "Rudolph". Example: Senna sends a gift to James. After wrapping the gift, Senna adresses it to "James Rudolph Tenney".<br>'+ \
-           '&nbsp;&nbsp;&nbsp;&nbsp;2) Hannah, Josiah and Isaac do not have Secret Santas. Remember to send them something too!<br><br>' + \
+           "Welcome to the 2022 edition of the Tenney family's Secret Santa!<br><br>" + \
+           "You have been assigned the following person for Secret Santa : " +  nameReceiver + "!<br><br>" + \
+           "Link to the google doc for gifts: %s <br><br>" % gdoc  + \
+           "As you all know, the Secret Santa Corporation has experienced a torrent of questionable publicity. We would like to reassure our loyal customers, that all allegations of elfic abuse in our headquarters are unfounded. We acknowledge that our elves workers are required to work 25 hours a day, however, our elves look like Dobby and not Galadriel. So it is ok.<br>" + \
+           "Since our PR work has monopolized our activity, we have not been able to innovate this year.<br>" + \
+           "If you are not satisfied with your Secret Santa, please message our assistant Malik: XXX@XXX.XXX <br>" + \
+           'Additional instructions: <br>&nbsp;&nbsp;&nbsp;&nbsp;1) On your gift, please indicate the name of the receiver and include the word "Rudolph". Example: Xander sends a gift to Isaac. After wrapping the gift, Xander adresses it to "Isaac Rudolph Tenney".<br>'+ \
+           '&nbsp;&nbsp;&nbsp;&nbsp;2) Hannah, Josiah, Isaac and Xander do not have Secret Santas. Remember to send them something too!<br><br>' + \
+           "It is never too early to get rid of the rotten pumpkins in your frontyard!<br><br>" + \
            '<b>Merry Christmas ! <3 Joyeux Noel ! <3 Bark Bark ! <3<b><br><br>'
   
     body += """\
@@ -48,6 +49,12 @@ def send_email(name, email, nameReceiver):
       </body>
     </html>
     """
+    
+    body += """\
+    <br><br><br><br>
+    PS: if you are nerdy enough (HAHA, NERDS!), you may consult our code that is openly available here: https://github.com/malihass/SecretSanta  
+    """
+          
 
     part1 = MIMEText(body, 'html')
     
@@ -84,7 +91,7 @@ Attendees.append(['Aaron',        'test123@gpail.cop',       ['Beth','Malik','We
 Attendees.append(['Amy',          'test123@gpail.cop',      ['Jason','Dad Tenney', 'Kristin']])
 Attendees.append(['Beth',         'test123@gpail.cop',        ['Malik','Mom Tenney']])
 Attendees.append(['Jason',        'test123@gpail.cop',         ['Wendy','Beth','Amy']])
-Attendees.append(['Kristin',      'test123@gpail.cop',          ['Aaron','Wendy','Malik']])
+Attendees.append(['Kristin',      'test123@gpail.cop',          ['Aaron','Wendy','Malik','Amy']])
 Attendees.append(['Malik',        'test123@gpail.cop',  ['Kristin','Aaron','Dad Tenney']])
 
 
