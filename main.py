@@ -86,7 +86,7 @@ Attendees = []
 dummyemail = 'test123@gpail.cop' 
 
 # Name of guest /  email adress / person guest gave to the past years
-Attendees.append(['Dad Tenney',   'test123@gpail.cop',     ['Mom Tenney','Jason']])
+Attendees.append(['Dad Tenney',   'test123@gpail.cop',     ['Mom Tenney','Jason', 'Wendy']])
 Attendees.append(['Mom Tenney',   'test123@gpail.cop'    ,     ['Amy','Kristin','Dad Tenney','Malik']])
 Attendees.append(['Wendy',        'test123@gpail.cop',       ['Dad Tenney','Amy','Aaron']])
 Attendees.append(['Aaron',        'test123@gpail.cop',       ['Beth','Malik','Wendy']])
