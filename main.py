@@ -33,8 +33,10 @@ def send_email(name, email, nameReceiver):
            "Welcome to the 2022 edition of the Tenney family's Secret Santa!<br><br>" + \
            "You have been assigned the following person for Secret Santa : " +  nameReceiver + "!<br><br>" + \
            "Link to the google doc for gifts: %s <br><br>" % gdoc  + \
-           "As you all know, the Secret Santa Corporation has experienced a torrent of questionable publicity. We would like to reassure our loyal customers, that all allegations of elfic abuse in our headquarters are unfounded. We acknowledge that our elves workers are required to work 25 hours a day, however, our elves look like Dobby and not Galadriel. So it is ok.<br>" + \
-           "Since our PR work has monopolized our activity, we have not been able to innovate this year.<br>" + \
+           "As you all know, the Secret Santa Corporation has experienced a torrent of questionable publicity.<br>" + \
+           "We would like to reassure our loyal customers, that all allegations of elfic abuse in our headquarters are unfounded.<br>" + \
+           "We acknowledge that our elves workers are required to work 25 hours a day, however, our elves look like Dobby and not Galadriel. So it is ok.<br>" + \
+           "Amyway, since our PR work has monopolized our activity, we have not been able to innovate this year.<br>" + \
            "If you are not satisfied with your Secret Santa, please message our assistant Malik: XXX@XXX.XXX <br>" + \
            'Additional instructions: <br>&nbsp;&nbsp;&nbsp;&nbsp;1) On your gift, please indicate the name of the receiver and include the word "Rudolph". Example: Xander sends a gift to Isaac. After wrapping the gift, Xander adresses it to "Isaac Rudolph Tenney".<br>'+ \
            '&nbsp;&nbsp;&nbsp;&nbsp;2) Hannah, Josiah, Isaac and Xander do not have Secret Santas. Remember to send them something too!<br><br>' + \
