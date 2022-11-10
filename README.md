@@ -12,6 +12,7 @@ Organize Secret Santa by email
 - Deal with variables (list of guest + guest info) via an input file
 - ~~Properly protect user info~~
 - Add a web interface
+- Make a debug version of the code
 
 ## Using the code
 
