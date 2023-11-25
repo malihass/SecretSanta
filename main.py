@@ -1,180 +1,129 @@
-import numpy as np
-import smtplib
-import imaplib
-import random
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
 import sys
-sys.path.append('utils')
+
+sys.path.append("utils")
 import myparser
+from email_utils import send_email, deleteSentEmails
+from party import Attendee, Party
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# ~~~~ Parse input
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+if __name__ == "__main__":
+    # ~~~~ Parse input
+    inpt = myparser.parseInputFile()
+    hostEmail = inpt["hostEmail"]
+    hostPassword = inpt["hostPassword"]
+    gdoc = inpt["gdoc"]
+    dummy_email = "test123@gpail.cop"
 
-inpt = myparser.parseInputFile()
-hostEmail = inpt['hostEmail']
-hostPassword = inpt['hostPassword']
-gdoc = inpt['gdoc']
+    # ~~~~ List of attendees
+    attendees = []
 
-def send_email(name, email, nameReceiver):
-    server = smtplib.SMTP('smtp.gmail.com',587)
-    server.ehlo()
-    server.starttls()
-    server.ehlo()
-    server.login(hostEmail,hostPassword)
-    subject = 'Secret Santa 2022!'
-    msg = MIMEMultipart('alternative')
-    msg['Subject'] = subject
-    msg['From'] = "The Secret Santa Corporation"
-    msg['To'] = email
-    
-    body = 'Hi ' + name + '!' + '<br>' + \
-           "Welcome to the 2022 edition of the Tenney family's Secret Santa!<br><br>" + \
-           "You have been assigned the following person for Secret Santa : " +  nameReceiver + "!<br><br>" + \
-           "Link to the google doc for gifts: %s <br><br>" % gdoc  + \
-           "As you all know, the Secret Santa Corporation has experienced a torrent of questionable publicity.<br>" + \
-           "We would like to reassure our loyal customers, that all allegations of elfic abuse in our headquarters are unfounded.<br>" + \
-           "We acknowledge that our elves workers are required to work 25 hours a day, however, our elves look like Dobby and not Galadriel. So it is ok.<br>" + \
-           "Amyway, since our PR work has monopolized our activity, we have not been able to innovate this year.<br>" + \
-           "If you are not satisfied with your Secret Santa, please message our assistant Malik: XXX@XXX.XXX <br>" + \
-           'Additional instructions: <br>&nbsp;&nbsp;&nbsp;&nbsp;1) On your gift, please indicate the name of the receiver and include the word "Rudolph". Example: Xander sends a gift to Isaac. After wrapping the gift, Xander adresses it to "Isaac Rudolph Tenney".<br>'+ \
-           '&nbsp;&nbsp;&nbsp;&nbsp;2) Hannah, Josiah, Isaac and Xander do not have Secret Santas. Remember to send them something too!<br><br>' + \
-           "It is never too early to get rid of the rotten pumpkins in your frontyard!<br><br>" + \
-           '<b>Merry Christmas ! <3 Joyeux Noel ! <3 Bark Bark ! <3<b><br><br>'
-  
-    body += """\
-    <html>
-      <head></head>
-      <body>
-        <p align="center"><b><font style="color: red;">The Secret </font><font style="color: green;">Santa Corporation</b></p>
-      </body>
-    </html>
-    """
-    
-    body += """\
-    <br><br><br><br>
-    PS: if you are nerdy enough (HAHA, NERDS!), you may consult our code that is openly available here: https://github.com/malihass/SecretSanta  
-    """
-          
+    gary_tenney = Attendee(
+        name="Gary Tenney",
+        email=dummy_email,
+        exclude=["Jason Tenney", "Wendy Tenney", "Aaron Tenney"],
+        partner=["Esther Tenney"],
+    )
+    esther_tenney = Attendee(
+        name="Esther Tenney",
+        email=dummy_email,
+        exclude=["Amy Tenney", "Kristin Tenney", "Wendy Tenney", "Malik Hassanaly"],
+        partner=["Gary Tenney"],
+    )
+    wendy_tenney = Attendee(
+        name="Wendy Tenney",
+        email=dummy_email,
+        exclude=["Gary Tenney", "Amy Tenney", "Kristin Tenney"],
+        partner=["Aaron Tenney", "Isaac Tenney", "Hannah Tenney", "Josiah Tenney"],
+    )
+    aaron_tenney = Attendee(
+        name="Aaron Tenney",
+        email=dummy_email,
+        exclude=["Beth Bergeron", "Malik Hassanaly", "Esther Tenney"],
+        partner=["Wendy Tenney", "Isaac Tenney", "Hannah Tenney", "Josiah Tenney"],
+    )
+    hannah_tenney = Attendee(
+        name="Hannah Tenney",
+        email=dummy_email,
+        exclude=[],
+        partner=["Wendy Tenney", "Isaac Tenney", "Aaron Tenney", "Josiah Tenney"],
+    )
+    josiah_tenney = Attendee(
+        name="Josiah Tenney",
+        email=dummy_email,
+        exclude=[],
+        partner=["Wendy Tenney", "Isaac Tenney", "Hannah Tenney", "Aaron Tenney"],
+    )
+    isaac_tenney = Attendee(
+        name="Isaac Tenney",
+        email=dummy_email,
+        exclude=[],
+        partner=["Wendy Tenney", "Aaron Tenney", "Hannah Tenney", "Josiah Tenney"],
+    )
+    amy_tenney = Attendee(
+        name="Amy Tenney",
+        email=dummy_email,
+        exclude=["Jason Tenney", "Gary Tenney", "Kristin Tenney", "Malik Hassanaly"],
+        partner=["Aaron Abma"],
+    )
+    beth_bergeron = Attendee(
+        name="Beth Bergeron",
+        email=dummy_email,
+        exclude=["Malik Hassanaly", "Esther Tenney", "Jason Tenney", "Amy Tenney"],
+        partner=["Kolin Bergeron", "Xander Bergeron"],
+    )
+    jason_tenney = Attendee(
+        name="Jason Tenney",
+        email=dummy_email,
+        exclude=["Wendy Tenney", "Beth Bergeron", "Amy Tenney"],
+        partner=[],
+    )
+    kristin_tenney = Attendee(
+        name="Kristin Tenney",
+        email=dummy_email,
+        exclude=["Aaron Tenney", "Wendy Tenney", "Amy Tenney", "Gary Tenney"],
+        partner=["Malik Hassanaly"],
+    )
+    malik_hassanaly = Attendee(
+        name="Malik Hassanaly",
+        email=dummy_email,
+        exclude=["Aaron Tenney", "Gary Tenney", "Beth Bergeron"],
+        partner=["Kristin Tenney"],
+    )
+    kolin_bergeron = Attendee(
+        name="Kolin Bergeron",
+        email=dummy_email,
+        exclude=[],
+        partner=["Beth Bergeron", "Xander Bergeron"],
+    )
+    xander_bergeron = Attendee(
+        name="Xander Bergeron",
+        email=dummy_email,
+        exclude=[],
+        partner=["Beth Bergeron", "Kolin Bergeron"],
+    )
+    aaron_abma = Attendee(
+        name="Aaron Abma", email=dummy_email, exclude=[], partner=["Amy Tenney"]
+    )
 
-    part1 = MIMEText(body, 'html')
-    
-    msg.attach(part1) # text must be the first one
+    # Name of guest /  email adress / person guest gave to the past years
+    attendees = [
+        gary_tenney,
+        esther_tenney,
+        wendy_tenney,
+        aaron_tenney,
+        amy_tenney,
+        beth_bergeron,
+        jason_tenney,
+        kristin_tenney,
+        malik_hassanaly,
+    ]
+    party = Party(attendees=attendees, gdoc=gdoc)
+    party.match()
+    party.log(toscreen=False)
 
-    server.sendmail(hostEmail, email, msg.as_string())
-   
-    print(' Email has been sent ' )
-    server.quit()
+    # ~~~~ Now Send emails
+    for i in range(party.n_guests):
+        body, subject, email_address = party.generate_message(i)
+        # send_email(email_address, body, subject, host_email_address, host_pwd)
 
-def deleteSentEmails():
-    box = imaplib.IMAP4_SSL('smtp.gmail.com', 993)
-    box.login(hostEmail,hostPassword)
-    box.select('"[Gmail]/Sent Mail"')
-    typ, data = box.search(None, 'ALL')
-    for num in data[0].split():
-        box.store(num, '+FLAGS', '\\Deleted')
-    box.expunge()
-    box.close()
-    print(' Send box emptied ' )
-    box.logout()
-
-    
-# ~~~~ List of attendees
-Attendees = []
-
-dummyemail = 'test123@gpail.cop' 
-
-# Name of guest /  email adress / person guest gave to the past years
-Attendees.append(['Dad Tenney',   'test123@gpail.cop',     ['Mom Tenney','Jason', 'Wendy', 'Aaron']])
-Attendees.append(['Mom Tenney',   'test123@gpail.cop'    ,     ['Amy','Kristin','Dad Tenney','Malik', 'Wendy']])
-Attendees.append(['Wendy',        'test123@gpail.cop',       ['Dad Tenney','Amy','Aaron', 'Kristin']])
-Attendees.append(['Aaron',        'test123@gpail.cop',       ['Beth','Malik','Wendy','Mom Tenney']])
-Attendees.append(['Amy',          'test123@gpail.cop',      ['Jason','Dad Tenney', 'Kristin', 'Malik']])
-Attendees.append(['Beth',         'test123@gpail.cop',        ['Malik','Mom Tenney', 'Jason', 'Amy']])
-Attendees.append(['Jason',        'test123@gpail.cop',         ['Wendy','Beth','Amy']])
-Attendees.append(['Kristin',      'test123@gpail.cop',          ['Aaron','Wendy','Malik','Amy', 'Dad Tenney']])
-Attendees.append(['Malik',        'test123@gpail.cop',  ['Kristin','Aaron','Dad Tenney', 'Beth']])
-
-
-# ~~~~ List of previous pairs
-PreviousGiver =       [ entry[0] for entry in Attendees ]
-PreviousReceiver =    [ entry[2] for entry in Attendees ]
-
-
-
-# ~~~~ Figure out who gives to who
-nGuests = len(Attendees)
-Receivers = list(range(nGuests))
-listNames = [ entry[0] for entry in Attendees]
-
-
-def fillGivers (Receivers, nGuests, listNames):
-    Givers = []
-    for i in range(nGuests):
-        # Make a list of potential givers that could give to person i
-        PotentialGivers = Receivers.copy()
-    
-        # Remove the receiver
-        PotentialGivers.pop(PotentialGivers.index(i))
-
-        # Did I give to you before ? If yes, remove me from givers list
-        nameReceiver = listNames[i]
-        for igiver, giver in enumerate(Attendees):
-            if nameReceiver in giver[2]:
-               PotentialGivers.pop(PotentialGivers.index(igiver)) 
-     
-        # Remove people who already gave
-        for igiver in Givers:
-            if igiver in PotentialGivers:
-                PotentialGivers.pop(PotentialGivers.index(igiver)) 
-       
-        # Choose any of the potential givers
-        giverID = random.choice(PotentialGivers)
-        Givers.append(giverID)
- 
-    return Givers
-
-
-# Try until it works
-Givers = None
-nFailure = 0
-while Givers is None:
-    try:
-        # connect
-        Givers = fillGivers (Receivers, nGuests, listNames)
-    except:
-         nFailure += 1
-         
-
-print('Failed ' + str(nFailure) + ' times')
-
-
-
-
-# ~~~~ LOG
-for i in range(nGuests): 
-    string = Attendees[Givers[i]][0] + ' gives to ' + Attendees[Receivers[i]][0]
-    string += ' / ' 
-    if len(Attendees[Givers[i]][2])==0:
-        string += ' nobody '
-    else:
-        for ientry in range(len(Attendees[Givers[i]][2])):
-            string += Attendees[Givers[i]][2][ientry]
-            if not ientry==len(Attendees[Givers[i]][2])-1:
-                string += ' and '
-    string += ' before '
-
-    print(string)
-
-
-
-
-
-## ~~~~ Now Send emails
-#for i in range(nGuests):
-#    send_email(Attendees[Givers[i]][0], Attendees[Givers[i]][1], Attendees[Receivers[i]][0]) 
-
-
-## Delete Emails sent so I cannot know who gives what
-#deleteSentEmails()
+    # # Delete Emails sent so I cannot know who gives what
+    # deleteSentEmails()
