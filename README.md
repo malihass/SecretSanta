@@ -16,7 +16,7 @@ Organize Secret Santa by email
 
 ## Using the code
 
-`python main input`
+`python main.py input`
 
 ## Contact
 
