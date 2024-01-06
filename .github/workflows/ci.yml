@@ -3,8 +3,14 @@ name: SECRETSANTA-CI
 on:
    push:
      branches: [main]
+     paths-ignore:
+        - '*.md'
+        - 'README*'
    pull_request:
      branches: [main]
+     paths-ignore:
+        - '*.md'
+        - 'README*'
 
 jobs:
   uqprop:
