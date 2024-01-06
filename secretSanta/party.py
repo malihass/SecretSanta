@@ -1,8 +1,12 @@
+import json
+import os
 import random
 import sys
-import json
 
-def make_attendees(file="guests.json"):
+from secretSanta import SECRETSANTA_INPUT_DIR as inpt_dir
+
+
+def make_attendees(file=os.path.join(inpt_dir, "guests.json")):
     attendees = []
     with open(file) as f:
         data = json.load(f)
@@ -17,6 +21,7 @@ def make_attendees(file="guests.json"):
         )
     return attendees
 
+
 class Attendee:
     def __init__(self, name, email, exclude=[], partner=[]):
         self.name = name
@@ -24,7 +29,9 @@ class Attendee:
         self.exclude = exclude
         for e in self.exclude:
             if e == self.name:
-                print(f"WARNING: did you mean to exclude {self.name} from {self.name}?")
+                print(
+                    f"WARNING: did you mean to exclude {self.name} from {self.name}?"
+                )
         self.partner = partner
         for p in self.partner:
             if p not in self.exclude:
@@ -38,7 +45,9 @@ class Attendee:
 class Party:
     def __init__(self, gdoc="", attendees=[]):
         if not isinstance(attendees, list):
-            sys.exit(f"ERROR: attendees must be list, received {type(attendees)}")
+            sys.exit(
+                f"ERROR: attendees must be list, received {type(attendees)}"
+            )
         if len(attendees) > 0:
             if not isinstance(attendees[0], Attendee):
                 sys.exit(
@@ -116,9 +125,14 @@ class Party:
             if len(self.attendees[self.givers[i]].exclude) == 0:
                 string += " nobody "
             else:
-                for ientry in range(len(self.attendees[self.givers[i]].exclude)):
+                for ientry in range(
+                    len(self.attendees[self.givers[i]].exclude)
+                ):
                     string += self.attendees[self.givers[i]].exclude[ientry]
-                    if not ientry == len(self.attendees[self.givers[i]].exclude) - 1:
+                    if (
+                        not ientry
+                        == len(self.attendees[self.givers[i]].exclude) - 1
+                    ):
                         string += " and "
             string += " before "
 
