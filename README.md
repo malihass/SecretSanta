@@ -1,22 +1,28 @@
-# SecretSanta
+# SecretSanta [![SECRETSANTA-CI](https://github.com/malihass/secretSanta/actions/workflows/ci.yml/badge.svg)](https://github.com/malihass/secretSanta/actions/workflows/ci.yml) 
 Organize Secret Santa by email
 
+## Installing
+
+1. `conda create --name secretSanta python=3.10`
+2. `conda activate secretSanta`
+3. `pip install .`
+
+### Quick start
+
+1. `python main.py`: outputs the match making result for a sample party
+
+2. Check the test suites in `tests`
+
+## Formatting [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) [![Imports: isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://pycqa.github.io/isort/)
+
+Code formatting and import sorting are done automatically with `black` and `isort`. 
+
+Fix imports and format : `pip install black isort; bash fixFormat.sh`
+
+Spelling is checked but not automatically fixed using `codespell`
 
 ## TODO list
-- ~~Automatically send email~~
-- ~~Allow to avoid some pairs of sender-receivers~~
-- ~~Pretty email body~~
-- ~~Make sure that nobody can see who is his secret santa~~
-    - ~~Clear sending box~~
-    - ~~Make a log and send it to a separate location~~
-- Deal with variables (list of guest + guest info) via an input file
-- ~~Properly protect user info~~
 - Add a web interface
-- Make a debug version of the code
-
-## Using the code
-
-`python main.py input`
 
 ## Contact
 
