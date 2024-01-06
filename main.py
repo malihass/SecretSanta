@@ -1,13 +1,13 @@
 import sys
 
 sys.path.append("utils")
-import myparser
+from prettyPlot.parser import parse_input_file
 from email_utils import send_email, deleteSentEmails
 from party import Attendee, Party
 
 if __name__ == "__main__":
     # ~~~~ Parse input
-    inpt = myparser.parseInputFile()
+    inpt = myparser.parse_input_file()
     hostEmail = inpt["hostEmail"]
     hostPassword = inpt["hostPassword"]
     gdoc = inpt["gdoc"]
