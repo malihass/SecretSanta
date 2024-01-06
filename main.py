@@ -7,7 +7,7 @@ from party import Attendee, Party
 
 if __name__ == "__main__":
     # ~~~~ Parse input
-    inpt = myparser.parse_input_file()
+    inpt = parse_input_file()
     hostEmail = inpt["hostEmail"]
     hostPassword = inpt["hostPassword"]
     gdoc = inpt["gdoc"]
