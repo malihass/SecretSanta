@@ -14,6 +14,8 @@ setup(
     url="https://github.com/malihass/SecretSanta",
     license="",
     package_dir={"secretSanta": "secretSanta"},
+    package_data={'': ['guests.json']},
+    include_package_data=True,
     classifiers=[
         "Intended Audience :: General",
         "Natural Language :: English",
