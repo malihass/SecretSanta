@@ -1,0 +1,87 @@
+{
+   "attendees_db": {
+	
+      "Gary Tenney" : {
+         "email": "",
+         "exclude": ["Jason Tenney", "Wendy Tenney", "Aaron Tenney", "Beth Bergeron"],
+         "partner": ["Esther Tenney"]
+      },
+      "Esther Tenney" : {
+         "email": "",
+         "exclude": ["Amy Tenney", "Kristin Tenney", "Wendy Tenney", "Malik Hassanaly", "Jason Tenney"],
+         "partner": ["Gary Tenney"]
+      },
+      "Wendy Tenney" : {
+         "email": "",
+         "exclude": ["Gary Tenney", "Amy Tenney", "Kristin Tenney", "Malik Hassanaly"],
+         "partner": ["Aaron Tenney", "Isaac Tenney", "Hannah Tenney", "Josiah Tenney"]
+      },
+      "Aaron Tenney" : {
+         "email": "",
+         "exclude": ["Beth Bergeron", "Malik Hassanaly", "Esther Tenney"],
+         "partner": ["Wendy Tenney", "Isaac Tenney", "Hannah Tenney", "Josiah Tenney"]
+      },
+      "Hannah Tenney" : {
+         "email": "",
+         "exclude": [""],
+         "partner": ["Wendy Tenney", "Isaac Tenney", "Aaron Tenney", "Josiah Tenney"]
+      },
+      "Josiah Tenney" : {
+         "email": "",
+         "exclude": [""],
+         "partner": ["Wendy Tenney", "Isaac Tenney", "Aaron Tenney", "Hannah Tenney"]
+      },
+      "Isaac Tenney" : {
+         "email": "",
+         "exclude": [""],
+         "partner": ["Wendy Tenney", "Josiah Tenney", "Aaron Tenney", "Hannah Tenney"]
+      },
+      "Amy Tenney" : {
+         "name":"Amy Tenney",
+         "email": "",
+         "exclude": ["Jason Tenney", "Gary Tenney", "Kristin Tenney", "Malik Hassanaly", "Aaron Tenney"],
+         "partner": ["Aaron Abma"]
+      },
+      "Beth Bergeron" : {
+         "email": "",
+         "exclude": ["Malik Hassanaly", "Esther Tenney", "Jason Tenney", "Amy Tenney", "Wendy Tenney"],
+         "partner": ["Kolin Bergeron", "Xander Bergeron"]
+      },
+      "Jason Tenney" : {
+         "email": "",
+         "exclude": ["Wendy Tenney", "Beth Bergeron", "Amy Tenney", "Kristin Tenney"],
+         "partner": [""]
+      },
+      "Kristin Tenney" : {
+         "email": "",
+         "exclude": ["Aaron Tenney", "Wendy Tenney", "Amy Tenney", "Gary Tenney", "Esther Tenney"],
+         "partner": ["Malik Hassanaly"]
+      },
+      "Malik Hassanaly" : {
+         "email": "",
+         "exclude": ["Aaron Tenney", "Gary Tenney", "Beth Bergeron", "Amy Tenney"],
+         "partner": ["Kristin Tenney"]
+      },
+      "Kolin Bergeron" : {
+         "email": "",
+         "exclude": [],
+         "partner": ["Beth Bergeron", "Xander Bergeron"]
+      },
+      "Aaron Abma" : {
+         "email": "",
+         "exclude": [""],
+         "partner": ["Amy Tenney"]
+      }
+   },
+   "event_attendees": [
+        "Gary Tenney",
+        "Esther Tenney",
+        "Wendy Tenney",
+        "Aaron Tenney",
+        "Amy Tenney",
+        "Beth Bergeron",
+        "Jason Tenney",
+        "Kristin Tenney",
+        "Malik Hassanaly"
+   ]
+}

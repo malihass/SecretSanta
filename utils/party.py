@@ -1,6 +1,21 @@
-import sys
 import random
+import sys
+import json
 
+def make_attendees(file="guests.json"):
+    attendees = []
+    with open(file) as f:
+        data = json.load(f)
+    for name in data["event_attendees"]:
+        attendees.append(
+            Attendee(
+                name=name,
+                email=data["attendees_db"][name]["email"],
+                exclude=data["attendees_db"][name]["exclude"],
+                partner=data["attendees_db"][name]["partner"],
+            )
+        )
+    return attendees
 
 class Attendee:
     def __init__(self, name, email, exclude=[], partner=[]):
