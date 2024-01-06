@@ -1,10 +1,12 @@
-import smtplib
 import imaplib
+import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 
-def send_email(email_address, message_body, subject, host_email_address, host_pwd):
+def send_email(
+    email_address, message_body, subject, host_email_address, host_pwd
+):
     server = smtplib.SMTP("smtp.gmail.com", 587)
     server.ehlo()
     server.starttls()
