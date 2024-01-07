@@ -1,9 +1,17 @@
 # SecretSanta [![SECRETSANTA-CI](https://github.com/malihass/secretSanta/actions/workflows/ci.yml/badge.svg)](https://github.com/malihass/secretSanta/actions/workflows/ci.yml) 
 Organize Secret Santa by email
 
+Some key features
+- Email adresses are not shared to anyone
+- The host cannot see the result of the match-making
+  - The send email are purged after match making
+  - The results of the match making are logged (if needed) to pickle file
+- One can specify what match pairs to avoid (avoids having the same match pairs a few years in a row)
+- Partners receive a notification about match making pairs of interest to them so they can sync up their gift
+
 ## Installing
 
-1. `conda create --name secretSanta python=3.10`
+1. `conda create --name secretSanta`
 2. `conda activate secretSanta`
 3. `pip install .`
 
