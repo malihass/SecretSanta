@@ -2,7 +2,7 @@
 Organize Secret Santa by email
 
 Some key features
-- Email adresses are not shared to anyone
+- Email addresses are not shared to anyone
 - The host cannot see the result of the match-making
   - The send email are purged after match making
   - The results of the match making are logged (if needed) to pickle file
