@@ -165,13 +165,13 @@ class Party:
         receiver = self.attendees[self.giver_receiver_pairs[giver_id]]
         partner_giver = self.get_partner_giver(giver_id)
 
-        subject = "Secret Santa 2023!"
+        subject = "Secret Santa 2024!"
         body = (
             "Hi "
             + attendee.name
             + "!"
             + "<br>"
-            + "Welcome to the 2023 edition of the Tenney family's Secret Santa!<br><br>"
+            + "Welcome to the 2024 edition of the Tenney family's Secret Santa!<br><br>"
             + "You have been assigned the following person for Secret Santa : "
             + receiver.name
             + "!<br><br>"
@@ -185,8 +185,8 @@ class Party:
             body += "<br>"
 
         body += (
-            "We hope this year has been kind to you, unlike the Secret Santa Corporation's attempt at damage control.<br><br>"
-            + "Our elves are doing well, thanks for asking. Rumor has it they've even started the 'Elvish Enlightenment Enclave' book club.<br> We are still unsure why the book club logo involves a hammer and a sickle. However, we appreciate the red which complements their green impotent hands.<br>"
+            "The Secret Santa corporation is happy to report yet another year of record-breaking performance!.<br>"
+            + "This is all thanks to our recent oil drilling venture development.<br><br>. Our elves have suffered a 90% mortality rate and we know that many are mourning. The corporation adresses its thoughts and prayers to our esteemed employees for [INSERT WHATEVER THESE PARASITES WANT]<br>"
             + "Anyway, we're here to spread holiday cheer once again!<br><br>"
             + "If, for any reason, your Secret Santa experience is less than magical, contact our assistant Malik at XXXX.XXXX@XXXX.XXXX.<br>"
             + 'Additional instructions: <br>&nbsp;&nbsp;&nbsp;&nbsp;1) If you mail your gift, please indicate the name of the receiver and include some keyword such as "Snowflake". Example: Xander sends a gift to Isaac. Xander addresses it to "Isaac Snowflake Tenney".<br>'
