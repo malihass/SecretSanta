@@ -33,4 +33,3 @@ def test_log():
 
     print("")
     read_log("log.pkl")
-
