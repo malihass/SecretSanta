@@ -32,8 +32,5 @@ def test_log():
     party.log(toscreen=False)
 
     print("")
+    read_log("log.pkl")
 
-    party2 = basic_party()
-    with open("log.pkl", "rb") as handle:
-        party2 = pkl.load(handle)
-    party2.log(toscreen=True)
