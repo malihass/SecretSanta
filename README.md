@@ -1,4 +1,4 @@
-# SecretSanta [![secret-santa-CI](https://github.com/malihass/secretSanta/actions/workflows/ci.yml/badge.svg)](https://github.com/malihass/secretSanta/actions/workflows/ci.yml) [![secret-santa-pyversion](https://img.shields.io/pypi/pyversions/secret-santa.svg)](https://pypi.org/project/secret-santa/)  [![secret-santa-pypi](https://badge.fury.io/py/secret-santa.svg)](https://badge.fury.io/py/secret-santa) 
+# SecretSanta [![secret-santa-email-CI](https://github.com/malihass/secretSanta/actions/workflows/ci.yml/badge.svg)](https://github.com/malihass/secretSanta/actions/workflows/ci.yml) [![secret-santa-email-pyversion](https://img.shields.io/pypi/pyversions/secret-santa-email.svg)](https://pypi.org/project/secret-santa-email/)  [![secret-santa-email-pypi](https://badge.fury.io/py/secret-santa-email.svg)](https://badge.fury.io/py/secret-santa-email) 
 
 Organize Secret Santa by email
 
@@ -25,7 +25,7 @@ pip install -e .
 ```bash
 conda create --name secretSanta python=3.10
 conda activate secretSanta
-pip install secret-santa
+pip install secret-santa-email
 ```
 
 ### Quick start

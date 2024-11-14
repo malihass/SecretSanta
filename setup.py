@@ -17,7 +17,7 @@ with open(
 version = version.split("=")[-1].strip().strip('"').strip("'")
 
 setup(
-    name="secret-santa",
+    name="secret-santa-email",
     version=version,
     description="SecretSanta: a toolbox for organizing secret Santa by email",
     long_description=readme,
@@ -29,7 +29,6 @@ setup(
     package_data={"": ["requirements.txt", "guests.json"]},
     include_package_data=True,
     classifiers=[
-        "Intended Audience :: General",
         "License :: OSI Approved :: BSD License",
         "Natural Language :: English",
         "Programming Language :: Python :: 3.9",
