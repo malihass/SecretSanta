@@ -10,7 +10,9 @@ with open(os.path.join(here, "secretSanta", "requirements.txt")) as f:
 with open(os.path.join(here, "README.md"), encoding="utf-8") as f:
     readme = f.read()
 
-with open(os.path.join(here, "secretSanta", "version.py"), encoding="utf-8") as f:
+with open(
+    os.path.join(here, "secretSanta", "version.py"), encoding="utf-8"
+) as f:
     version = f.read()
 version = version.split("=")[-1].strip().strip('"').strip("'")
 
@@ -35,7 +37,6 @@ setup(
         "Programming Language :: Python :: 3.11",
         "Programming Language :: Python :: 3.12",
     ],
-    include_package_data=True,
     python_requires=">=3.9",
     install_requires=install_requires,
 )
