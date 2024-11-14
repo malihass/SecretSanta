@@ -1,23 +1,36 @@
-# SecretSanta [![SECRETSANTA-CI](https://github.com/malihass/secretSanta/actions/workflows/ci.yml/badge.svg)](https://github.com/malihass/secretSanta/actions/workflows/ci.yml) 
-Organize Secret Santa by email
+# SecretSanta [![secret-santa-email-CI](https://github.com/malihass/secretSanta/actions/workflows/ci.yml/badge.svg)](https://github.com/malihass/secretSanta/actions/workflows/ci.yml) [![secret-santa-email-pyversion](https://img.shields.io/pypi/pyversions/secret-santa-email.svg)](https://pypi.org/project/secret-santa-email/)  [![secret-santa-email-pypi](https://badge.fury.io/py/secret-santa-email.svg)](https://badge.fury.io/py/secret-santa-email) 
+
+SecretSanta: a toolbox for organizing secret Santa by email
 
 Some key features
-- Email adresses are not shared to anyone
+- Email addresses are not shared to anyone
 - The host cannot see the result of the match-making
   - The send email are purged after match making
   - The results of the match making are logged (if needed) to pickle file
 - One can specify what match pairs to avoid (avoids having the same match pairs a few years in a row)
 - Partners receive a notification about match making pairs of interest to them so they can sync up their gift
 
-## Installing
+## Installation for developers
 
-1. `conda create --name secretSanta`
-2. `conda activate secretSanta`
-3. `pip install .`
+```bash
+conda create --name secretSanta python=3.10
+conda activate secretSanta
+git clone https://github.com/malihass/secretSanta.git
+cd secretSanta
+pip install -e .
+```
+
+## Installation for users
+
+```bash
+conda create --name secretSanta python=3.10
+conda activate secretSanta
+pip install secret-santa-email
+```
 
 ### Quick start
 
-1. `python main.py`: outputs the match making result for a sample party
+1. `cd applications; python main.py`: outputs the match making result for a sample party
 
 2. Check the test suites in `tests`
 

@@ -25,9 +25,9 @@ def send_email(
     server.quit()
 
 
-def deleteSentEmails():
+def deleteSentEmails(host_email, host_pwd):
     box = imaplib.IMAP4_SSL("smtp.gmail.com", 993)
-    box.login(hostEmail, hostPassword)
+    box.login(host_email, host_pwd)
     box.select('"[Gmail]/Sent Mail"')
     typ, data = box.search(None, "ALL")
     for num in data[0].split():

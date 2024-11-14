@@ -14,6 +14,7 @@ def make_attendees(file=os.path.join(inpt_dir, "guests.json")):
         attendees.append(
             Attendee(
                 name=name,
+                nickname=data["attendees_db"][name]["nickname"],
                 email=data["attendees_db"][name]["email"],
                 exclude=data["attendees_db"][name]["exclude"],
                 partner=data["attendees_db"][name]["partner"],
@@ -23,8 +24,9 @@ def make_attendees(file=os.path.join(inpt_dir, "guests.json")):
 
 
 class Attendee:
-    def __init__(self, name, email, exclude=[], partner=[]):
+    def __init__(self, name, nickname, email, exclude=[], partner=[]):
         self.name = name
+        self.nickname = nickname
         self.email = email
         self.exclude = exclude
         for e in self.exclude:
@@ -165,33 +167,35 @@ class Party:
         receiver = self.attendees[self.giver_receiver_pairs[giver_id]]
         partner_giver = self.get_partner_giver(giver_id)
 
-        subject = "Secret Santa 2023!"
+        subject = "Secret Santa 2024!"
         body = (
             "Hi "
-            + attendee.name
+            + attendee.nickname
             + "!"
             + "<br>"
-            + "Welcome to the 2023 edition of the Tenney family's Secret Santa!<br><br>"
-            + "You have been assigned the following person for Secret Santa : "
+            + "Welcome to the 2024 edition of the Tenney family's Secret Santa!<br><br>"
+            + "You have been assigned the following person for Secret Santa : <b>"
             + receiver.name
-            + "!<br><br>"
+            + "</b>!<br><br>"
             + "Link to the Google Doc for gifts: %s <br><br>" % self.gdoc
         )
         if len(partner_giver) > 0:
             body += "<br>"
-            body += "You might want to know that<br>"
+            body += "You might want to know that:<br>"
             for part in partner_giver:
-                body += f"&nbsp{part}'s Secret Santa is {partner_giver[part].name} ({partner_giver[part].email})<br>"
+                body += f"<b>{part}</b>'s Secret Santa is <b>{partner_giver[part].name}</b> ({partner_giver[part].email}).<br>"
+            body += (
+                "We advise you to coordinate to avoid duplicating gifts!<br>"
+            )
             body += "<br>"
 
         body += (
-            "We hope this year has been kind to you, unlike the Secret Santa Corporation's attempt at damage control.<br><br>"
-            + "Our elves are doing well, thanks for asking. Rumor has it they've even started the 'Elvish Enlightenment Enclave' book club.<br> We are still unsure why the book club logo involves a hammer and a sickle. However, we appreciate the red which complements their green impotent hands.<br>"
+            "We hope this year has been kind to you, and we're happy to report that the Secret Santa Corporation’s latest PR campaign finally quieted the media storm.<br>Meanwhile, the ‘Elvish Enlightenment Enclave’ has become a full-blown movement! The elves organized a ‘March of the Mistletoe’ last winter, demanding shorter working hours and calling for 'Snowcial Justice.'<br>The Secret Santa Corporation, generously provided hot cocoa to all participants. What a heartwarming festive gathering!<br><br>"
             + "Anyway, we're here to spread holiday cheer once again!<br><br>"
-            + "If, for any reason, your Secret Santa experience is less than magical, contact our assistant Malik at XXXX.XXXX@XXXX.XXXX.<br>"
+            + "If, for any reason, your Secret Santa experience is less than magical, contact our assistant Malik at XXXX@XXXXX<br>"
             + 'Additional instructions: <br>&nbsp;&nbsp;&nbsp;&nbsp;1) If you mail your gift, please indicate the name of the receiver and include some keyword such as "Snowflake". Example: Xander sends a gift to Isaac. Xander addresses it to "Isaac Snowflake Tenney".<br>'
             + "&nbsp;&nbsp;&nbsp;&nbsp;2) Hannah, Josiah, Isaac, and Xander are once again exempt from Secret Santas. Remember to spread some holiday joy to them too!<br><br>"
-            + "Let's make this season brighter than the Rudolph's nose and let's be closer than chat GPT's dataset!<br><br>"
+            + "Let’s make this season more joyful than a sleigh full of chocolate chip cookies!<br><br>"
             + "<b>Merry Christmas! <3 Joyeux Noel! <3 Bark Bark! <3<b><br><br>"
         )
 
@@ -206,7 +210,7 @@ class Party:
 
         body += """\
         <br><br><br><br>
-        PS: if you are nerdy enough (HAHA, NERDS!), you may consult our code that is openly available here: https://github.com/malihass/SecretSanta  
+        PS: You may consult our refactored code here: https://github.com/malihass/SecretSanta  
         """
 
         return body, subject, self.attendees[giver_id].email
