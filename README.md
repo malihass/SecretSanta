@@ -1,4 +1,4 @@
-# SecretSanta [![SECRETSANTA-CI](https://github.com/malihass/secretSanta/actions/workflows/ci.yml/badge.svg)](https://github.com/malihass/secretSanta/actions/workflows/ci.yml) [![secret-santa-pyversion](https://img.shields.io/pypi/pyversions/secret-santa.svg)](https://pypi.org/project/secret-santa/)  [![secret-santa-pypi](https://badge.fury.io/py/secret-santa.svg)](https://badge.fury.io/py/secret-santa) 
+# SecretSanta [![secret-santa-CI](https://github.com/malihass/secretSanta/actions/workflows/ci.yml/badge.svg)](https://github.com/malihass/secretSanta/actions/workflows/ci.yml) [![secret-santa-pyversion](https://img.shields.io/pypi/pyversions/secret-santa.svg)](https://pypi.org/project/secret-santa/)  [![secret-santa-pypi](https://badge.fury.io/py/secret-santa.svg)](https://badge.fury.io/py/secret-santa) 
 
 Organize Secret Santa by email
 
