@@ -1,4 +1,4 @@
-name: secretSanta-CI
+name: secret-santa-email-CI
 
 on:
    push:
