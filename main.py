@@ -15,7 +15,7 @@ if __name__ == "__main__":
     dummy_email = "test123@gpail.cop"
 
     # ~~~~ Init party and matchmaking
-    attendees = make_attendees()
+    attendees = make_attendees(file=os.path.join(inpt_dir, "guests.json"))
     party = Party(attendees=attendees, gdoc=gdoc)
     party.match()
     # party.log(toscreen=True)

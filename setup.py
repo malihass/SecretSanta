@@ -8,7 +8,7 @@ with open(os.path.join(here, "requirements.txt")) as f:
     install_requires = f.readlines()
 
 setup(
-    name="secretSanta",
+    name="secret-santa",
     version="0.0.1",
     description="Organize Secret Santa by email",
     url="https://github.com/malihass/SecretSanta",

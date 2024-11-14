@@ -1,4 +1,5 @@
-# SecretSanta [![SECRETSANTA-CI](https://github.com/malihass/secretSanta/actions/workflows/ci.yml/badge.svg)](https://github.com/malihass/secretSanta/actions/workflows/ci.yml) 
+# SecretSanta [![SECRETSANTA-CI](https://github.com/malihass/secretSanta/actions/workflows/ci.yml/badge.svg)](https://github.com/malihass/secretSanta/actions/workflows/ci.yml) [![secret-santa-pyversion](https://img.shields.io/pypi/pyversions/secret-santa.svg)](https://pypi.org/project/secret-santa/)  [![secret-santa-pypi](https://badge.fury.io/py/secret-santa.svg)](https://badge.fury.io/py/secret-santa) 
+
 Organize Secret Santa by email
 
 Some key features
@@ -9,11 +10,23 @@ Some key features
 - One can specify what match pairs to avoid (avoids having the same match pairs a few years in a row)
 - Partners receive a notification about match making pairs of interest to them so they can sync up their gift
 
-## Installing
+## Installation for developers
 
-1. `conda create --name secretSanta`
-2. `conda activate secretSanta`
-3. `pip install .`
+```bash
+conda create --name secretSanta python=3.10
+conda activate secretSanta
+git clone https://github.com/malihass/secretSanta.git
+cd secretSanta
+pip install -e .
+```
+
+## Installation for users
+
+```bash
+conda create --name secretSanta python=3.10
+conda activate secretSanta
+pip install secret-santa
+```
 
 ### Quick start
 
