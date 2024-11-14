@@ -1,6 +1,6 @@
 # SecretSanta [![secret-santa-email-CI](https://github.com/malihass/secretSanta/actions/workflows/ci.yml/badge.svg)](https://github.com/malihass/secretSanta/actions/workflows/ci.yml) [![secret-santa-email-pyversion](https://img.shields.io/pypi/pyversions/secret-santa-email.svg)](https://pypi.org/project/secret-santa-email/)  [![secret-santa-email-pypi](https://badge.fury.io/py/secret-santa-email.svg)](https://badge.fury.io/py/secret-santa-email) 
 
-Organize Secret Santa by email
+SecretSanta: a toolbox for organizing secret Santa by email
 
 Some key features
 - Email addresses are not shared to anyone
