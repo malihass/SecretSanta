@@ -174,25 +174,28 @@ class Party:
             + "!"
             + "<br>"
             + "Welcome to the 2024 edition of the Tenney family's Secret Santa!<br><br>"
-            + "You have been assigned the following person for Secret Santa : "
+            + "You have been assigned the following person for Secret Santa : <b>"
             + receiver.name
-            + "!<br><br>"
+            + "</b>!<br><br>"
             + "Link to the Google Doc for gifts: %s <br><br>" % self.gdoc
         )
         if len(partner_giver) > 0:
             body += "<br>"
-            body += "You might want to know that<br>"
+            body += "You might want to know that:<br>"
             for part in partner_giver:
-                body += f"&nbsp{part}'s Secret Santa is {partner_giver[part].name} ({partner_giver[part].email})<br>"
+                body += f"<b>{part}</b>'s Secret Santa is <b>{partner_giver[part].name}</b> ({partner_giver[part].email}).<br>"
+            body += (
+                "We advise you to coordinate to avoid duplicating gifts!<br>"
+            )
             body += "<br>"
 
         body += (
             "We hope this year has been kind to you, and we're happy to report that the Secret Santa Corporation’s latest PR campaign finally quieted the media storm.<br>Meanwhile, the ‘Elvish Enlightenment Enclave’ has become a full-blown movement! The elves organized a ‘March of the Mistletoe’ last winter, demanding shorter working hours and calling for 'Snowcial Justice.'<br>The Secret Santa Corporation, generously provided hot cocoa to all participants. What a heartwarming festive gathering!<br><br>"
             + "Anyway, we're here to spread holiday cheer once again!<br><br>"
-            + "If, for any reason, your Secret Santa experience is less than magical, contact our assistant Malik at XXXX@XXXX<br>"
+            + "If, for any reason, your Secret Santa experience is less than magical, contact our assistant Malik at XXXX@XXXXX<br>"
             + 'Additional instructions: <br>&nbsp;&nbsp;&nbsp;&nbsp;1) If you mail your gift, please indicate the name of the receiver and include some keyword such as "Snowflake". Example: Xander sends a gift to Isaac. Xander addresses it to "Isaac Snowflake Tenney".<br>'
             + "&nbsp;&nbsp;&nbsp;&nbsp;2) Hannah, Josiah, Isaac, and Xander are once again exempt from Secret Santas. Remember to spread some holiday joy to them too!<br><br>"
-            + "Let’s make this season more joyful than a sleigh full of chocolat chip cookies!<br><br>"
+            + "Let’s make this season more joyful than a sleigh full of chocolate chip cookies!<br><br>"
             + "<b>Merry Christmas! <3 Joyeux Noel! <3 Bark Bark! <3<b><br><br>"
         )
 
@@ -207,7 +210,7 @@ class Party:
 
         body += """\
         <br><br><br><br>
-        PS: You may consult our refactore code here: https://github.com/malihass/SecretSanta  
+        PS: You may consult our refactored code here: https://github.com/malihass/SecretSanta  
         """
 
         return body, subject, self.attendees[giver_id].email

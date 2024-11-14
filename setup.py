@@ -4,9 +4,6 @@ from setuptools import setup
 
 here = os.path.abspath(os.path.dirname(__file__))
 
-with open(os.path.join(here, "requirements.txt")) as f:
-    install_requires = f.readlines()
-
 setup(
     name="secretSanta",
     version="0.0.1",
@@ -22,5 +19,4 @@ setup(
         "Programming Language :: Python :: 3.10",
     ],
     python_requires=">=3.10",
-    install_requires=install_requires,
 )

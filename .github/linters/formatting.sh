@@ -13,5 +13,5 @@ format () {
         isort --profile 'black' --multi-line 3 --trailing-comma --force-grid-wrap 0 --line-length 79 --use-parentheses $1
     fi; 
    
-    codespell $1 -L pash
+    codespell $1 --config .github/linters/.codespellrc
 }

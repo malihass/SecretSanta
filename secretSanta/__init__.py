@@ -1,4 +1,5 @@
 """SECRET SANTA"""
+
 import os
 
 SECRETSANTA_DIR = os.path.dirname(os.path.realpath(__file__))
