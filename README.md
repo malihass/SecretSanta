@@ -30,7 +30,7 @@ pip install secret-santa
 
 ### Quick start
 
-1. `python main.py`: outputs the match making result for a sample party
+1. `cd applications; python main.py`: outputs the match making result for a sample party
 
 2. Check the test suites in `tests`
 
