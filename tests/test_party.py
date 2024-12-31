@@ -7,8 +7,14 @@ from secretSanta.party import Party, make_attendees
 
 
 def basic_party():
-    attendees, potential_attendees = make_attendees(os.path.join(inpt_dir, "guests.json"))
-    party = Party(attendees=attendees, gdoc="dumGDOC", potential_attendees=potential_attendees)
+    attendees, potential_attendees = make_attendees(
+        os.path.join(inpt_dir, "guests.json")
+    )
+    party = Party(
+        attendees=attendees,
+        gdoc="dumGDOC",
+        potential_attendees=potential_attendees,
+    )
     return party
 
 

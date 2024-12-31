@@ -56,7 +56,7 @@ class Party:
                 sys.exit(
                     f"ERROR: attendees must be list of attendees received list of {type(attendees[0])}"
                 )
-        self.potential_attendees = potential_attendees         
+        self.potential_attendees = potential_attendees
         self.attendees = attendees
         self.check_excludes_partners()
         self.n_guests = len(self.attendees)
@@ -113,7 +113,9 @@ class Party:
         nFailure = 0
         while givers is None:
             if nFailure >= 1e6:
-                sys.exit("ERROR: Failed too many times, you may need to relax the exclude list")
+                sys.exit(
+                    "ERROR: Failed too many times, you may need to relax the exclude list"
+                )
             try:
                 # connect
                 givers = self.fill_givers()
