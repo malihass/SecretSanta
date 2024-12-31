@@ -20,7 +20,8 @@ def make_attendees(file=os.path.join(inpt_dir, "guests.json")):
                 partner=data["attendees_db"][name]["partner"],
             )
         )
-    return attendees
+    potential_attendees = data["potential_attendees"]
+    return attendees, potential_attendees
 
 
 class Attendee:
@@ -45,7 +46,7 @@ class Attendee:
 
 
 class Party:
-    def __init__(self, gdoc="", attendees=[]):
+    def __init__(self, gdoc="", attendees=[], potential_attendees=[]):
         if not isinstance(attendees, list):
             sys.exit(
                 f"ERROR: attendees must be list, received {type(attendees)}"
@@ -55,12 +56,24 @@ class Party:
                 sys.exit(
                     f"ERROR: attendees must be list of attendees received list of {type(attendees[0])}"
                 )
+        self.potential_attendees = potential_attendees         
         self.attendees = attendees
+        self.check_excludes_partners()
         self.n_guests = len(self.attendees)
         self.attendees_names = [attendee.name for attendee in self.attendees]
         if not isinstance(gdoc, str):
             sys.exit(f"ERROR: gdoc needed, received {gdoc}")
         self.gdoc = gdoc
+
+    def check_excludes_partners(self):
+        found_error = False
+        for attendee in self.attendees:
+            for excluded in attendee.exclude:
+                if excluded not in self.potential_attendees:
+                    print(f"For {attendee.name}, {excluded} might be a typo")
+                    found_error = True
+        if found_error:
+            sys.exit("ERROR: typos in guest input file")
 
     def fill_givers(self):
         receivers = list(range(self.n_guests))
@@ -99,6 +112,8 @@ class Party:
         givers = None
         nFailure = 0
         while givers is None:
+            if nFailure >= 1e6:
+                sys.exit("ERROR: Failed too many times, you may need to relax the exclude list")
             try:
                 # connect
                 givers = self.fill_givers()
@@ -106,7 +121,6 @@ class Party:
                 nFailure += 1
 
         print(f"Failed {nFailure} times")
-
         self.givers = givers
 
         self.giver_receiver_pairs = {}

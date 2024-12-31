@@ -53,7 +53,7 @@
          "email": "test123@gpail.com",
          "nickname": "Beth",
          "exclude": ["Malik Hassanaly", "Esther Tenney", "Jason Tenney", "Amy Tenney", "Wendy Tenney", "Kristin Tenney"],
-         "partner": ["Kolin Bergeron", "Xander Bergeron"]
+         "partner": ["Kolin Bergeron", "Xander Bergeron", "Bennett Bergeron"]
       },
       "Jason Tenney" : {
          "email": "test123@gpail.com",
@@ -77,7 +77,7 @@
          "email": "",
          "nickname": "Kolin",
          "exclude": [],
-         "partner": ["Beth Bergeron", "Xander Bergeron"]
+         "partner": ["Beth Bergeron", "Xander Bergeron", "Bennett Bergeron"]
       },
       "Aaron Abma" : {
          "email": "test123@gpail.com",
@@ -96,5 +96,23 @@
         "Beth Bergeron",
         "Kristin Tenney",
         "Malik Hassanaly"
+   ],
+   "potential_attendees": [
+        "Gary Tenney",
+        "Esther Tenney",
+        "Wendy Tenney",
+        "Aaron Tenney",
+        "Amy Tenney",
+        "Aaron Abma",
+        "Beth Bergeron",
+        "Kristin Tenney",
+        "Malik Hassanaly",
+        "Kolin Bergeron",
+        "Xander Bergeron",
+        "Bennett Bergeron",
+        "Jason Tenney",
+        "Josiah Tenney",
+        "Hannah Tenney",
+        "Isaac Tenney"
    ]
 }
