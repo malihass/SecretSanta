@@ -4,25 +4,25 @@
       "Gary Tenney" : {
          "email": "test123@gpail.com",
          "nickname": "Dad Tenney",
-         "exclude": ["Jason Tenney", "Wendy Tenney", "Aaron Tenney", "Beth Bergeron"],
+         "exclude": ["Jason Tenney", "Wendy Tenney", "Aaron Tenney", "Beth Bergeron", "Amy Tenney"],
          "partner": ["Esther Tenney"]
       },
       "Esther Tenney" : {
          "email": "test123@gpail.com",
          "nickname": "Mom Tenney",
-         "exclude": ["Amy Tenney", "Kristin Tenney", "Wendy Tenney", "Malik Hassanaly", "Jason Tenney"],
+         "exclude": ["Amy Tenney", "Kristin Tenney", "Wendy Tenney", "Malik Hassanaly", "Jason Tenney", "Aaron Tenney"],
          "partner": ["Gary Tenney"]
       },
       "Wendy Tenney" : {
          "email": "test123@gpail.com",
          "nickname": "Wendy",
-         "exclude": ["Gary Tenney", "Amy Tenney", "Kristin Tenney", "Malik Hassanaly"],
+         "exclude": ["Gary Tenney", "Amy Tenney", "Kristin Tenney", "Malik Hassanaly", "Aaron Abma"],
          "partner": ["Aaron Tenney", "Isaac Tenney", "Hannah Tenney", "Josiah Tenney"]
       },
       "Aaron Tenney" : {
          "email": "test123@gpail.com",
          "nickname": "Aaron (T.)",
-         "exclude": ["Beth Bergeron", "Malik Hassanaly", "Esther Tenney"],
+         "exclude": ["Beth Bergeron", "Malik Hassanaly", "Esther Tenney", "Gary Tenney"],
          "partner": ["Wendy Tenney", "Isaac Tenney", "Hannah Tenney", "Josiah Tenney"]
       },
       "Hannah Tenney" : {
@@ -46,13 +46,13 @@
       "Amy Tenney" : {
          "email": "test123@gpail.com",
          "nickname": "Amy",
-         "exclude": ["Jason Tenney", "Gary Tenney", "Kristin Tenney", "Malik Hassanaly", "Aaron Tenney"],
+         "exclude": ["Jason Tenney", "Gary Tenney", "Kristin Tenney", "Malik Hassanaly", "Aaron Tenney", "Wendy Tenney"],
          "partner": ["Aaron Abma"]
       },
       "Beth Bergeron" : {
          "email": "test123@gpail.com",
          "nickname": "Beth",
-         "exclude": ["Malik Hassanaly", "Esther Tenney", "Jason Tenney", "Amy Tenney", "Wendy Tenney"],
+         "exclude": ["Malik Hassanaly", "Esther Tenney", "Jason Tenney", "Amy Tenney", "Wendy Tenney", "Kristin Tenney"],
          "partner": ["Kolin Bergeron", "Xander Bergeron"]
       },
       "Jason Tenney" : {
@@ -64,13 +64,13 @@
       "Kristin Tenney" : {
          "email": "test123@gpail.com",
          "nickname": "Krissy",
-         "exclude": ["Aaron Tenney", "Wendy Tenney", "Amy Tenney", "Gary Tenney", "Esther Tenney"],
+         "exclude": ["Aaron Tenney", "Wendy Tenney", "Amy Tenney", "Gary Tenney", "Esther Tenney", "Beth Bergeron"],
          "partner": ["Malik Hassanaly"]
       },
       "Malik Hassanaly" : {
          "email": "test123@gpail.com",
          "nickname": "Malik",
-         "exclude": ["Aaron Tenney", "Gary Tenney", "Beth Bergeron", "Amy Tenney"],
+         "exclude": ["Aaron Tenney", "Gary Tenney", "Beth Bergeron", "Amy Tenney", "Esther Tenney"],
          "partner": ["Kristin Tenney"]
       },
       "Kolin Bergeron" : {
@@ -82,7 +82,7 @@
       "Aaron Abma" : {
          "email": "test123@gpail.com",
          "nickname": "Aaron (A.)",
-         "exclude": [""],
+         "exclude": ["Malik Hassanaly"],
          "partner": ["Amy Tenney"]
       }
    },
