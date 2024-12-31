@@ -4,25 +4,25 @@
       "Gary Tenney" : {
          "email": "test123@gpail.com",
          "nickname": "Dad Tenney",
-         "exclude": ["Jason Tenney", "Wendy Tenney", "Aaron Tenney", "Beth Bergeron"],
+         "exclude": ["Wendy Tenney", "Aaron Tenney", "Beth Bergeron", "Amy Tenney"],
          "partner": ["Esther Tenney"]
       },
       "Esther Tenney" : {
          "email": "test123@gpail.com",
          "nickname": "Mom Tenney",
-         "exclude": ["Amy Tenney", "Kristin Tenney", "Wendy Tenney", "Malik Hassanaly", "Jason Tenney"],
+         "exclude": ["Kristin Tenney", "Wendy Tenney", "Malik Hassanaly", "Jason Tenney", "Aaron Tenney"],
          "partner": ["Gary Tenney"]
       },
       "Wendy Tenney" : {
          "email": "test123@gpail.com",
          "nickname": "Wendy",
-         "exclude": ["Gary Tenney", "Amy Tenney", "Kristin Tenney", "Malik Hassanaly"],
+         "exclude": ["Amy Tenney", "Kristin Tenney", "Malik Hassanaly", "Aaron Abma"],
          "partner": ["Aaron Tenney", "Isaac Tenney", "Hannah Tenney", "Josiah Tenney"]
       },
       "Aaron Tenney" : {
          "email": "test123@gpail.com",
          "nickname": "Aaron (T.)",
-         "exclude": ["Beth Bergeron", "Malik Hassanaly", "Esther Tenney"],
+         "exclude": ["Malik Hassanaly", "Esther Tenney", "Gary Tenney"],
          "partner": ["Wendy Tenney", "Isaac Tenney", "Hannah Tenney", "Josiah Tenney"]
       },
       "Hannah Tenney" : {
@@ -46,43 +46,43 @@
       "Amy Tenney" : {
          "email": "test123@gpail.com",
          "nickname": "Amy",
-         "exclude": ["Jason Tenney", "Gary Tenney", "Kristin Tenney", "Malik Hassanaly", "Aaron Tenney"],
+         "exclude": ["Gary Tenney", "Kristin Tenney", "Malik Hassanaly", "Aaron Tenney", "Wendy Tenney"],
          "partner": ["Aaron Abma"]
       },
       "Beth Bergeron" : {
          "email": "test123@gpail.com",
          "nickname": "Beth",
-         "exclude": ["Malik Hassanaly", "Esther Tenney", "Jason Tenney", "Amy Tenney", "Wendy Tenney"],
-         "partner": ["Kolin Bergeron", "Xander Bergeron"]
+         "exclude": ["Esther Tenney", "Jason Tenney", "Amy Tenney", "Wendy Tenney", "Kristin Tenney"],
+         "partner": ["Kolin Bergeron", "Xander Bergeron", "Bennett Bergeron"]
       },
       "Jason Tenney" : {
          "email": "test123@gpail.com",
          "nickname": "Jason",
-         "exclude": ["Wendy Tenney", "Beth Bergeron", "Amy Tenney", "Kristin Tenney"],
+         "exclude": ["Beth Bergeron", "Amy Tenney", "Kristin Tenney"],
          "partner": [""]
       },
       "Kristin Tenney" : {
          "email": "test123@gpail.com",
          "nickname": "Krissy",
-         "exclude": ["Aaron Tenney", "Wendy Tenney", "Amy Tenney", "Gary Tenney", "Esther Tenney"],
+         "exclude": ["Wendy Tenney", "Amy Tenney", "Gary Tenney", "Esther Tenney", "Beth Bergeron"],
          "partner": ["Malik Hassanaly"]
       },
       "Malik Hassanaly" : {
          "email": "test123@gpail.com",
          "nickname": "Malik",
-         "exclude": ["Aaron Tenney", "Gary Tenney", "Beth Bergeron", "Amy Tenney"],
+         "exclude": ["Gary Tenney", "Beth Bergeron", "Amy Tenney", "Esther Tenney"],
          "partner": ["Kristin Tenney"]
       },
       "Kolin Bergeron" : {
          "email": "",
          "nickname": "Kolin",
          "exclude": [],
-         "partner": ["Beth Bergeron", "Xander Bergeron"]
+         "partner": ["Beth Bergeron", "Xander Bergeron", "Bennett Bergeron"]
       },
       "Aaron Abma" : {
          "email": "test123@gpail.com",
          "nickname": "Aaron (A.)",
-         "exclude": [""],
+         "exclude": ["Malik Hassanaly"],
          "partner": ["Amy Tenney"]
       }
    },
@@ -96,5 +96,23 @@
         "Beth Bergeron",
         "Kristin Tenney",
         "Malik Hassanaly"
+   ],
+   "potential_attendees": [
+        "Gary Tenney",
+        "Esther Tenney",
+        "Wendy Tenney",
+        "Aaron Tenney",
+        "Amy Tenney",
+        "Aaron Abma",
+        "Beth Bergeron",
+        "Kristin Tenney",
+        "Malik Hassanaly",
+        "Kolin Bergeron",
+        "Xander Bergeron",
+        "Bennett Bergeron",
+        "Jason Tenney",
+        "Josiah Tenney",
+        "Hannah Tenney",
+        "Isaac Tenney"
    ]
 }

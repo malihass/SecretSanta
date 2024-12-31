@@ -38,9 +38,8 @@ pip install secret-santa-email
 
 Code formatting and import sorting are done automatically with `black` and `isort`. 
 
-Fix imports and format : `pip install black isort; bash fixFormat.sh`
+Fix imports, format and spelling : `pip install black isort codespell; bash fixFormat.sh`
 
-Spelling is checked but not automatically fixed using `codespell`
 
 ## TODO list
 - Add a web interface
