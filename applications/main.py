@@ -3,9 +3,9 @@ import os
 from prettyPlot.parser import parse_input_file
 
 from secretSanta import SECRETSANTA_INPUT_DIR as inpt_dir
+from secretSanta import logger
 from secretSanta.email_utils import delete_sent_emails, send_email
 from secretSanta.party import Attendee, Party, make_attendees
-from secretSanta import logger
 
 if __name__ == "__main__":
     # ~~~~ Parse input
@@ -29,9 +29,9 @@ if __name__ == "__main__":
     # ~~~~ Now Send emails
     for i in range(party.n_guests):
         body, subject, email_address = party.generate_message(i)
-        
+
         logger.warning("Using dummy emails")
-        email_address=dummy_email
+        email_address = dummy_email
 
         send_email(
             email_address,
@@ -39,7 +39,7 @@ if __name__ == "__main__":
             subject,
             host_email_address,
             host_pwd,
-            image_path=None
+            image_path=None,
         )
 
     # Delete Emails sent so I cannot know who gives what
