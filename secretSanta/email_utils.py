@@ -5,6 +5,8 @@ from email.mime.image import MIMEImage
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
+from secretSanta import logger
+
 
 def send_email(
     email_address: str,
@@ -22,13 +24,17 @@ def send_email(
 
     # Are we including an image?
     embedded_image = False
+    if image_path is not None and not os.path.isfile(image_path):
+        logger.warning(f"Could not find {image_path}")
     if image_path is not None and os.path.isfile(image_path):
         embedded_image = True
 
     # Make sure to use the related is important if image is used
     if embedded_image:
+        logger.debug("Will include image")
         msg = MIMEMultipart("related")
     else:
+        logger.debug("No image included")
         msg = MIMEMultipart("alternative")
 
     msg["Subject"] = subject
@@ -67,7 +73,7 @@ def send_email(
 
     server.sendmail(host_email_address, email_address, msg.as_string())
 
-    print(" Email has been sent ")
+    logger.info("Email has been sent")
     server.quit()
 
 
@@ -80,5 +86,5 @@ def deleteSentEmails(host_email, host_pwd):
         box.store(num, "+FLAGS", "\\Deleted")
     box.expunge()
     box.close()
-    print(" Send box emptied ")
+    logger.info("Send box emptied")
     box.logout()
