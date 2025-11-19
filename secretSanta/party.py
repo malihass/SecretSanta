@@ -4,6 +4,7 @@ import random
 import sys
 
 from secretSanta import SECRETSANTA_INPUT_DIR as inpt_dir
+from secretSanta import logger
 
 
 def make_attendees(file=os.path.join(inpt_dir, "guests.json")):
@@ -32,29 +33,29 @@ class Attendee:
         self.exclude = exclude
         for e in self.exclude:
             if e == self.name:
-                print(
-                    f"WARNING: did you mean to exclude {self.name} from {self.name}?"
+                logger.warning(
+                    f"Did you mean to exclude {self.name} from {self.name}?"
                 )
         self.partner = partner
         for p in self.partner:
             if p not in self.exclude:
                 self.exclude.append(p)
             if p == self.name:
-                print(
-                    f"WARNING: did you mean to make {self.name} partner of {self.name}?"
+                logger.warning(
+                    f"Did you mean to make {self.name} partner of {self.name}?"
                 )
 
 
 class Party:
     def __init__(self, gdoc="", attendees=[], potential_attendees=[]):
         if not isinstance(attendees, list):
-            sys.exit(
-                f"ERROR: attendees must be list, received {type(attendees)}"
+            raise TypeError(
+                f"attendees must be list, received {type(attendees)}"
             )
         if len(attendees) > 0:
             if not isinstance(attendees[0], Attendee):
-                sys.exit(
-                    f"ERROR: attendees must be list of attendees received list of {type(attendees[0])}"
+                raise TypeError(
+                    f"attendees must be list of attendees received list of {type(attendees[0])}"
                 )
         self.potential_attendees = potential_attendees
         self.attendees = attendees
@@ -62,7 +63,7 @@ class Party:
         self.n_guests = len(self.attendees)
         self.attendees_names = [attendee.name for attendee in self.attendees]
         if not isinstance(gdoc, str):
-            sys.exit(f"ERROR: gdoc needed, received {gdoc}")
+            raise ValueError(f"gdoc needed, received {gdoc}")
         self.gdoc = gdoc
 
     def check_excludes_partners(self):
@@ -70,10 +71,12 @@ class Party:
         for attendee in self.attendees:
             for excluded in attendee.exclude:
                 if excluded not in self.potential_attendees:
-                    print(f"For {attendee.name}, {excluded} might be a typo")
+                    logger.error(
+                        f"For {attendee.name}, {excluded} might be a typo"
+                    )
                     found_error = True
         if found_error:
-            sys.exit("ERROR: typos in guest input file")
+            raise ValueError("Typos in guest input file")
 
     def fill_givers(self):
         receivers = list(range(self.n_guests))
@@ -113,8 +116,8 @@ class Party:
         nFailure = 0
         while givers is None:
             if nFailure >= 1e6:
-                sys.exit(
-                    "ERROR: Failed too many times, you may need to relax the exclude list"
+                raise RuntimeError(
+                    "Failed too many times, you may need to relax the exclude list"
                 )
             try:
                 # connect
@@ -122,7 +125,7 @@ class Party:
             except IndexError:
                 nFailure += 1
 
-        print(f"Failed {nFailure} times")
+        logger.info(f"Failed {nFailure} times")
         self.givers = givers
 
         self.giver_receiver_pairs = {}
@@ -183,35 +186,32 @@ class Party:
         receiver = self.attendees[self.giver_receiver_pairs[giver_id]]
         partner_giver = self.get_partner_giver(giver_id)
 
-        subject = "Secret Santa 2024!"
+        subject = "Secret Santa 2025!"
         body = (
             "Hi "
             + attendee.nickname
             + "!"
             + "<br>"
-            + "Welcome to the 2024 edition of the Tenney family's Secret Santa!<br><br>"
+            + "Welcome to the 2025 edition of the extended Tenney family's Secret Santa!<br><br>"
             + "You have been assigned the following person for Secret Santa : <b>"
             + receiver.name
             + "</b>!<br><br>"
             + "Link to the Google Doc for gifts: %s <br><br>" % self.gdoc
         )
+
         if len(partner_giver) > 0:
-            body += "<br>"
             body += "You might want to know that:<br>"
             for part in partner_giver:
                 body += f"<b>{part}</b>'s Secret Santa is <b>{partner_giver[part].name}</b> ({partner_giver[part].email}).<br>"
-            body += (
-                "We advise you to coordinate to avoid duplicating gifts!<br>"
-            )
-            body += "<br>"
-
+        body += "We advise you to coordinate to avoid duplicating gifts!<br>"
+        body += "<br>"
         body += (
-            "We hope this year has been kind to you, and we're happy to report that the Secret Santa Corporation’s latest PR campaign finally quieted the media storm.<br>Meanwhile, the ‘Elvish Enlightenment Enclave’ has become a full-blown movement! The elves organized a ‘March of the Mistletoe’ last winter, demanding shorter working hours and calling for 'Snowcial Justice.'<br>The Secret Santa Corporation, generously provided hot cocoa to all participants. What a heartwarming festive gathering!<br><br>"
+            "We are aware that many of you are concerned about the North Pole Shutdown. The Secret Santa Corporation had to stop paying agents at the Department of Reindeers. But don’t you worry, they will still help make this Christmas season magical: prestige and visibility are great forms of salary after all!<br><br>"
             + "Anyway, we're here to spread holiday cheer once again!<br><br>"
-            + "If, for any reason, your Secret Santa experience is less than magical, contact our assistant Malik at XXXX@XXXXX<br>"
+            + "If, for any reason, your Secret Santa experience is less than magical, contact our assistant Malik at XXXX@XXXX.XXX<br>"
             + 'Additional instructions: <br>&nbsp;&nbsp;&nbsp;&nbsp;1) If you mail your gift, please indicate the name of the receiver and include some keyword such as "Snowflake". Example: Xander sends a gift to Isaac. Xander addresses it to "Isaac Snowflake Tenney".<br>'
-            + "&nbsp;&nbsp;&nbsp;&nbsp;2) Hannah, Josiah, Isaac, and Xander are once again exempt from Secret Santas. Remember to spread some holiday joy to them too!<br><br>"
-            + "Let’s make this season more joyful than a sleigh full of chocolate chip cookies!<br><br>"
+            + "&nbsp;&nbsp;&nbsp;&nbsp;2) Hannah, Josiah, Isaac, Xander and Bennett are exempt from Secret Santas. Remember to spread some holiday joy to them too!<br><br>"
+            + "Let’s make this season more joyful than a cozy fireplace and bottomless mugs of hot cocoa!<br><br>"
             + "<b>Merry Christmas! <3 Joyeux Noel! <3 Bark Bark! <3<b><br><br>"
         )
 
@@ -222,11 +222,6 @@ class Party:
             <p align="center"><b><font style="color: red;">The Secret </font><font style="color: green;">Santa Corporation</b></p>
           </body>
         </html>
-        """
-
-        body += """\
-        <br><br><br><br>
-        PS: You may consult our refactored code here: https://github.com/malihass/SecretSanta  
         """
 
         return body, subject, self.attendees[giver_id].email
