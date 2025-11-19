@@ -77,7 +77,7 @@ def send_email(
     server.quit()
 
 
-def deleteSentEmails(host_email, host_pwd):
+def delete_sent_emails(host_email, host_pwd):
     box = imaplib.IMAP4_SSL("smtp.gmail.com", 993)
     box.login(host_email, host_pwd)
     box.select('"[Gmail]/Sent Mail"')
